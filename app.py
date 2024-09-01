@@ -172,9 +172,9 @@ def process_audio(audio_file):
 # Define Gradio interface with custom colors
 
 theme = gr.themes.Soft(
-    neutral_hue=gr.themes.Color(c100="#fffdf5", c200="#fdfbee", c300="#f7e4cc", c400="#eac7b1", c50="#fffdf5", c500="#cc9e8e", c600="#bf9282", c700="#a47d70", c800="#9f7465", c900="#976c5e", c950="#7e5649"),
+    primary_hue=gr.themes.Color(c100="#fffdf5", c200="#fdfbee", c300="#f7e4cc", c400="#eac7b1", c50="#fffdf5", c500="#cc9e8e", c600="#bf9282", c700="#a47d70", c800="#9f7465", c900="#976c5e", c950="#7e5649"),
     secondary_hue="red",
-    primary_hue=gr.themes.Color(c100="#dbeafe", c200="#bfdbfe", c300="#93c5fd", c400="#5298b2", c50="#fffcf0", c500="#488ba6", c600="#487592", c700="#46748e", c800="#3e6785", c900="#22446a", c950="#002248"),
+    neutral_hue=gr.themes.Color(c100="#dbeafe", c200="#bfdbfe", c300="#93c5fd", c400="#5298b2", c50="#fffcf0", c500="#488ba6", c600="#487592", c700="#46748e", c800="#3e6785", c900="#22446a", c950="#002248"),
 )
 
 with gr.Blocks(
