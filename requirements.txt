@@ -1,0 +1,11 @@
+gradio
+speechrecognition
+PyMuPDF
+transformers
+torch
+faiss-cpu
+numpy
+gtts
+pydub
+groq
+python-dotenv
