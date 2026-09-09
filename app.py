@@ -155,7 +155,7 @@ def process_audio(audio_file):
                     "content": prompt,
                 }
             ],
-            model="llama-3.1-70b-versatile",
+            model="llama-3.3-70b-versatile",
         )
         response = chat_completion.choices[0].message.content
         output_file = "advice.mp3"
