@@ -10,7 +10,7 @@ An intelligent, voice-driven multi-modal application engineered to assist mother
 - **Voice-to-Text Pipeline:** Integrates automated audio processing utilizing `pydub` format normalization paired with the `speech_recognition` engine to parse and transcribe microphone voice inputs seamlessly.
 - **Localized Semantic Ingestion (RAG):** Extracts underlying reference text from comprehensive pediatric and positive parenting guidelines via `PyMuPDF` (`fitz`), transforming text matrices into 768-dimensional embeddings through a local `bert-base-uncased` transformer model.
 - **Dense Vector Search Engine:** Indexes historical document tensors using a localized `FAISS` instance, running real-time L2 distance similarity queries to fetch expert parenting context for the LLM prompt payload.
-- **Ultra-Fast Synthesis:** Routes context-augmented prompts to the high-performance **Groq Cloud API** running open-source model infrastructure (`llama-3.3-70b-versatile`) to generate rapid, structured advice.
+- **Ultra-Fast Synthesis:** Routes context-augmented prompts to the high-performance **Groq Cloud API** running open-source model infrastructure (`openai/gpt-oss-120b`) to generate rapid, structured advice.
 - **Text-to-Voice Output (TTS):** Automatically synthesizes the AI's structural text recommendations back into clean, human-playable `.mp3` audio files via Google Text-to-Speech (`gTTS`).
 
 ---
@@ -22,4 +22,4 @@ The frontend features a clean, accessibility-focused interface engineered using 
 
 ## 📁 Repository Inventory
 - `app.py`: Core application architecture containing audio translation pipelines, transformer mean pooling calculations, API configurations, and layout states.
-- `pdfsforRAG/`: Target context folder where reference files and expert parenting books are parsed (Note: Due to file size limits, the full production document dataset is hosted externally on Google Drive).
+- `pdfsforRAG/`: Target context folder where reference files and expert parenting books are parsed (Note: Due to file size limits, the full production document dataset is diplayed externally on Google Drive).
