@@ -1,6 +1,6 @@
 import os
 import speech_recognition as sr
-import fitz  # PyMuPDF
+import pymupdf as fitz  # PyMuPDF
 from transformers import AutoTokenizer, AutoModel
 import torch
 import faiss
@@ -155,7 +155,7 @@ def process_audio(audio_file):
                     "content": prompt,
                 }
             ],
-            model="llama-3.3-70b-versatile",
+            model="openai/gpt-oss-120b",
         )
         response = chat_completion.choices[0].message.content
         output_file = "advice.mp3"
@@ -173,20 +173,29 @@ def process_audio(audio_file):
 
 theme = gr.themes.Soft(
     primary_hue=gr.themes.Color(c100="#fffdf5", c200="#fdfbee", c300="#f7e4cc", c400="#eac7b1", c50="#fffdf5", c500="#cc9e8e", c600="#bf9282", c700="#a47d70", c800="#9f7465", c900="#976c5e", c950="#7e5649"),
-    secondary_hue="red",
-    neutral_hue=gr.themes.Color(c100="#dbeafe", c200="#bfdbfe", c300="#93c5fd", c400="#5298b2", c50="#fffcf0", c500="#488ba6", c600="#487592", c700="#46748e", c800="#3e6785", c900="#22446a", c950="#002248"),
+    secondary_hue=gr.themes.colors.red,
+    neutral_hue=gr.themes.Color(c50="#ffffff",   # Pure white base background
+        c100="#fafafa",  # Off-white background paneling
+        c200="#f3f4f6",  # Light grey borders
+        c300="#e5e7eb",  # Muted element highlights
+        c400="#9ca3af",  # Muted grey text structures
+        c500="#4b5563",  # Body text
+        c600="#374151",  # Strong secondary labels
+        c700="#46748e",  # Your original structural blue for intermediate components
+        c800="#3e6785",  # Deep slate blue
+        c900="#22446a",  # Deep navy structural hue
+        c950="#002248"   # Dark core text/titles
+    ),
 )
 
-with gr.Blocks(
-    theme=theme
-) as demo:
+with gr.Blocks(theme=theme) as demo:
     gr.Markdown(
         """
         <div style="text-align: center;">
-            <img src="https://huggingface.co/spaces/Ayesha931/ChillMama3.0/blob/main/logo.jpeg" style="max-width: 50px; height: auto;" />
+            <img src="/file=logo.jpeg" style="max-width: 50px; height: auto; display: block; margin: 0 auto; border-radius: 8px;"" />
         </div>
         <h1 style='text-align: center; color: #3b718e; font-size: 48px; font-weight: bold;'>ChillMama</h1>
-        <h3 style='text-align: center; color: #001f43; font-size: 24px;'>Helping Parents to Nurture Healthy Families</h3>
+        <h3 style='text-align: center; color: #D97706; font-size: 24px; font-weight: bold;'>Helping Parents to Nurture Healthy Families</h3>
         """
     )
     
@@ -205,4 +214,4 @@ with gr.Blocks(
 
 # Launch the Gradio app with a public link
 if __name__ == "__main__":
-    demo.launch(share=True)  # Add share=True here to create a public link
+    demo.launch(share=True, allowed_paths=["."])  # Add share=True here to create a public link
